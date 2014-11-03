@@ -1,0 +1,35 @@
+<html ng-app='myApp'>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+
+	<form ng-controller='someController'>
+		<input ng-change='computeNeeded()' ng-model='funding.startingEstimate'>
+		</input>
+		Reccomendation: {{funding.needed}}</br>
+		<button ng-click = 'requestFunding()'>gief muny</button>
+	</form>
+
+	<script>
+
+		var myAppModule = angular.module('myApp',[]);
+
+		function someController($scope) {
+
+			$scope.funding = {startingEstimate: 0};
+
+			var computeNeeded = function() {
+				$scope.funding.needed=$scope.funding.startingEstimate * 10;
+			}
+
+			$scope.requestFunding = function() {
+				window.alert('get stuffed!');
+			}
+
+			$scope.$watch('funding.startingEstimate',computeNeeded)			
+
+		}
+
+	</script>
+
+</body>
+</html>

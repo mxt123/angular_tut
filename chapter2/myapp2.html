@@ -1,0 +1,31 @@
+<html ng-app='myApp'>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+
+	<form ng-controller='SomeController'>
+		<input type='checkbox' 
+			ng-model='youCheckedIt'
+			ng-change='checkValue()'
+		>
+			{{someText.message}}
+		</input>
+	</form>
+
+	<script>
+		var myAppModule = angular.module('myApp',[]);
+
+		myAppModule.controller('SomeController',
+			function($scope) {
+				var someText={};
+				someText.message='hello asfsfasfdf';
+				$scope.someText = someText;
+
+			$scope.checkValue =function(){
+				someText.message = $scope.youCheckedIt?'*TRUE*':'*FALSE*';
+			}
+		
+	 	});
+	</script>
+
+</body>
+</html>
