@@ -1,15 +1,15 @@
-var aMailServices = angular.module('AMail',[]);
+var aMailServices = angular.module('AMail',['ngRoute']);
 
 function emailRouteConfig($routeProvider) {
 	$routeProvider.
-	when('/'), {
+	when('/', {
 		controller: ListController, 
 		templateUrl: 'list.html'
 	}).
-	when('/view/:id'), {
+	when('/view/:id', {
 		controller: DetailController,
 		templateUrl: 'detail.html'
-	}.
+	}).
 	otherwise({
 		redirectTo: '/'
 	});
@@ -22,7 +22,7 @@ messages=[
 	{id:1,sender:'mrb@a.com',subject:'Nihao2',date:'01:01:1066',message:'2blah blah blah'},
 	{id:2,sender:'mrc@a.com',subject:'Nihao3',date:'01:01:1066',message:'3blah blah blah'},
 	{id:3,sender:'mrd@a.com',subject:'Nihao4',date:'01:01:1066',message:'4blah blah blah'}
-]
+];
 
 function ListController($scope) {
 	$scope.messages = messages;
