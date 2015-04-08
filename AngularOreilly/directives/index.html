@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app = 'app'>
+<head>
+	<title>bah</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="controllers.js"></script>
+    <script src="directive.js"></script>
+</head>
+<body ng-controller="SomeController">
+	<button ng-click='clickUnfocused()'>Not Focused</button>
+	<button ngbk-Focus ng-click='clickFocused()'>I'm very Focused</button>
+	<div>{{message.text}}</div>
+</body>
+</html>
